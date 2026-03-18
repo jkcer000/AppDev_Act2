@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News App + AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- AI ASSISTANT SECTION -->
+<h2>AI Assistant</h2>
+
+<form method="POST">
+    <input type="text" name="user_input" placeholder="Ask something...">
+    <button type="submit">Send</button>
+</form>
+
+<p>{{ response }}</p>
+
+
+<h1>News Home</h1>
+
+<div class="nav">
+    <a href="/">Home</a>
+    <a href="/category/Tech">Tech</a>
+    <a href="/category/Sports">Sports</a>
+</div>
+
+<!-- NEWS SECTION -->
+<div class="news-container">
+    {% for item in news %}
+        <div class="card">
+            <h2>{{ item.title }}</h2>
+            <p>Category: {{ item.category }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
