@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ category }} News</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- AI ASSISTANT SECTION -->
+<h2>AI Assistant</h2>
+
+<form method="POST">
+    <input type="text" name="user_input" placeholder="Ask something...">
+    <button type="submit">Send</button>
+</form>
+
+<p>{{ response }}</p>
+
+<h1>{{ category }} News</h1>
+
+<a href="/">Back to Home</a>
+
+<div class="news-container">
+    {% for item in news %}
+        <div class="card">
+            <h2>{{ item.title }}</h2>
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
